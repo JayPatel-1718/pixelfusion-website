@@ -1,0 +1,238 @@
+.builtforbrands-section {
+  position: relative;
+  padding: 140px 24px;
+  background: #08090B;
+  overflow: hidden;
+}
+
+.builtforbrands-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Header */
+.builtforbrands-header {
+  text-align: center;
+  margin-bottom: 80px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.builtforbrands-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.builtforbrands-title-accent {
+  background: linear-gradient(135deg, #F2542D 0%, #E85D26 50%, #C2410C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.builtforbrands-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Mobile Mockups Grid */
+.builtforbrands-mockups {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Mockup Card */
+.builtforbrands-mockup-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.builtforbrands-mockup-frame {
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 9 / 19;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.builtforbrands-mockup-frame:hover {
+  transform: translateY(-8px);
+  border-color: rgba(242, 84, 45, 0.3);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(242, 84, 45, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Placeholder */
+.builtforbrands-mockup-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.builtforbrands-mockup-placeholder:hover {
+  background: rgba(242, 84, 45, 0.05);
+}
+
+.builtforbrands-mockup-placeholder svg {
+  width: 48px;
+  height: 48px;
+  color: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.builtforbrands-mockup-placeholder:hover svg {
+  color: #F2542D;
+  transform: scale(1.1);
+}
+
+.builtforbrands-placeholder-text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 500;
+}
+
+.builtforbrands-upload-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Uploaded Image */
+.builtforbrands-mockup-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.builtforbrands-mockup-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.builtforbrands-remove-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.builtforbrands-mockup-image:hover .builtforbrands-remove-btn {
+  opacity: 1;
+}
+
+.builtforbrands-remove-btn:hover {
+  background: rgba(242, 84, 45, 0.8);
+  border-color: #F2542D;
+}
+
+.builtforbrands-remove-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Mockup Info */
+.builtforbrands-mockup-info {
+  text-align: center;
+}
+
+.builtforbrands-mockup-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .builtforbrands-mockups {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .builtforbrands-mockup-frame {
+    max-width: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .builtforbrands-section {
+    padding: 80px 16px;
+  }
+
+  .builtforbrands-header {
+    margin-bottom: 48px;
+  }
+
+  .builtforbrands-title {
+    font-size: 2rem;
+  }
+
+  .builtforbrands-subtitle {
+    font-size: 1rem;
+  }
+
+  .builtforbrands-mockups {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .builtforbrands-mockup-frame {
+    max-width: 220px;
+    aspect-ratio: 9 / 19;
+  }
+}
+
+/* Accessibility: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .builtforbrands-mockup-frame {
+    transition: none;
+  }
+
+  .builtforbrands-mockup-frame:hover {
+    transform: none;
+  }
+
+  .builtforbrands-mockup-placeholder:hover svg {
+    transform: none;
+  }
+}

@@ -1,0 +1,105 @@
+.magnetic-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+  border-radius: var(--border-radius-pill);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: 
+    transform 0.1s ease-out,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+  overflow: hidden;
+  padding: 0;
+}
+
+.magnetic-button:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Content wrapper for scale effect */
+.magnetic-button__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: inherit;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Glass Variant - matching original design */
+.magnetic-button--glass {
+  background: rgba(30, 20, 15, 0.7);
+  color: var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  padding: 12px 24px;
+  font-size: 0.9rem;
+}
+
+.magnetic-button--glass:hover {
+  background: rgba(40, 28, 20, 0.85);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(224, 122, 47, 0.15);
+}
+
+.magnetic-button--glass:active {
+  transform: scale(0.98);
+}
+
+/* Primary Variant - for Contact Us CTA */
+.magnetic-button--primary {
+  background: var(--color-accent-gradient);
+  color: var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 24px;
+  font-size: 0.9rem;
+}
+
+.magnetic-button--primary:hover {
+  box-shadow: 0 8px 32px rgba(224, 122, 47, 0.3);
+}
+
+.magnetic-button--primary:active {
+  transform: scale(0.98);
+}
+
+/* Sizes */
+.magnetic-button--sm {
+  padding: 10px 16px;
+  font-size: 0.8rem;
+}
+
+.magnetic-button--md {
+  padding: 12px 24px;
+  font-size: 0.9rem;
+}
+
+.magnetic-button--lg {
+  padding: 16px 32px;
+  font-size: 1rem;
+}
+
+/* Mobile: Disable magnetic effect on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .magnetic-button {
+    transform: none !important;
+  }
+}
+
+/* Accessibility: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .magnetic-button {
+    transform: none !important;
+  }
+  
+  .magnetic-button__content {
+    transition: none !important;
+  }
+}

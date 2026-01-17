@@ -1,0 +1,338 @@
+.contact-section {
+  position: relative;
+  padding: 140px 24px;
+  background: #08090B;
+  overflow: hidden;
+}
+
+.contact-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* Left Column - Contact Info */
+.contact-info {
+  max-width: 480px;
+}
+
+.contact-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.contact-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 48px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.contact-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact-detail-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(242, 84, 45, 0.1);
+  border: 1px solid rgba(242, 84, 45, 0.2);
+  border-radius: 50%;
+  color: #F2542D;
+  flex-shrink: 0;
+}
+
+.contact-detail-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.contact-detail-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contact-detail-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-detail-value {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Social Links */
+.contact-social {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-social-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.contact-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.contact-social-link:hover {
+  background: rgba(242, 84, 45, 0.1);
+  border-color: rgba(242, 84, 45, 0.3);
+  color: #F2542D;
+  transform: translateY(-3px);
+}
+
+.contact-social-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Right Column - Form */
+.contact-form-wrapper {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 40px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-input,
+.contact-textarea {
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 1rem;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.contact-input::placeholder,
+.contact-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+  border-color: rgba(242, 84, 45, 0.5);
+  box-shadow: 0 0 0 3px rgba(242, 84, 45, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.contact-textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contact-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #F2542D 0%, #E85D26 100%);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+}
+
+.contact-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(242, 84, 45, 0.3);
+}
+
+.contact-submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.contact-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.contact-submit.submitting {
+  background: rgba(242, 84, 45, 0.6);
+}
+
+.contact-submit.success {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+}
+
+.contact-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.contact-submit svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .contact-info {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .contact-details {
+    align-items: center;
+  }
+
+  .contact-detail-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .contact-social {
+    align-items: center;
+  }
+
+  .contact-social-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 80px 16px;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .contact-subtitle {
+    font-size: 1rem;
+    margin-bottom: 32px;
+  }
+
+  .contact-form-wrapper {
+    padding: 24px;
+    border-radius: 20px;
+  }
+
+  .contact-input,
+  .contact-textarea {
+    padding: 14px 16px;
+    font-size: 0.95rem;
+  }
+
+  .contact-submit {
+    padding: 16px 24px;
+  }
+}
+
+/* Accessibility: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .contact-social-link,
+  .contact-submit,
+  .contact-input,
+  .contact-textarea {
+    transition: none;
+  }
+
+  .contact-social-link:hover {
+    transform: none;
+  }
+
+  .contact-submit:hover:not(:disabled) {
+    transform: none;
+  }
+
+  .contact-spinner {
+    animation: none;
+  }
+}

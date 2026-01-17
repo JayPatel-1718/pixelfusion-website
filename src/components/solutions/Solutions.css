@@ -1,0 +1,232 @@
+.solutions-section {
+  position: relative;
+  padding: 120px 24px;
+  background: #08090B;
+  overflow: hidden;
+}
+
+.solutions-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+.solutions-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.solutions-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.solutions-title-white {
+  color: var(--color-white);
+}
+
+.solutions-title-gradient {
+  background: var(--color-accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.solutions-subtitle {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Bento Grid Layout */
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 20px;
+  grid-template-areas:
+    "card1 card2 card3"
+    "card4 card4 card3";
+}
+
+/* Card Base Styles */
+.solution-card {
+  position: relative;
+  background: rgba(26, 18, 16, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 28px;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.solution-card.visible {
+  animation: cardReveal 0.6s ease forwards;
+}
+
+.solution-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Icon */
+.solution-card-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(224, 122, 47, 0.1);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  color: #E85D26;
+}
+
+.solution-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-white);
+  margin-bottom: 12px;
+  letter-spacing: -0.02em;
+}
+
+.solution-card-description {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* Card Type Specific Styles */
+/* Card 1 - Social Media (Top Left) */
+.solution-card--social {
+  grid-area: card1;
+}
+
+.solution-card--social .solution-card-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Card 2 - Branding (Top Middle) */
+.solution-card--branding {
+  grid-area: card2;
+}
+
+.solution-card--branding .solution-card-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Card 3 - Website Development (Right Column - Tall) */
+.solution-card--website {
+  grid-area: card3;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, rgba(232, 93, 38, 0.15) 0%, rgba(194, 65, 12, 0.1) 100%);
+  border: 1px solid rgba(232, 93, 38, 0.3);
+}
+
+.solution-card--website .solution-card-icon {
+  background: rgba(232, 93, 38, 0.2);
+}
+
+.solution-card--website .solution-card-title {
+  color: #E85D26;
+}
+
+.solution-card--website .solution-card-description {
+  flex: 1;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.solution-card--website .magnetic-button {
+  margin-top: 24px;
+  width: 100%;
+}
+
+/* Card 4 - UI/UX Design (Bottom Left - Spans 2 cols) */
+.solution-card--ux {
+  grid-area: card4;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.solution-card--ux .solution-card-icon {
+  flex-shrink: 0;
+}
+
+.solution-card--ux .solution-card-content {
+  flex: 1;
+}
+
+/* Keyframe Animations */
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "card1 card2"
+      "card4 card3";
+  }
+  
+  .solution-card--website {
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .solutions-section {
+    padding: 80px 16px;
+  }
+  
+  .solutions-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .solution-card--ux {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .solution-card {
+    padding: 24px;
+  }
+}
+
+/* Accessibility: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .solution-card,
+  .solution-card.visible {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .solution-card:hover {
+    transform: none;
+  }
+}

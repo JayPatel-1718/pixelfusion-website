@@ -1,0 +1,144 @@
+.logos-section {
+  position: relative;
+  padding: 100px 24px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(5, 5, 5, 0.8) 20%,
+    rgba(5, 5, 5, 0.95) 100%
+  );
+  overflow: hidden;
+}
+
+.logos-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logos-title {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: 56px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.logos-title.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.logos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  perspective: 1000px;
+}
+
+/* Responsive Grid */
+@media (min-width: 640px) {
+  .logos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logos-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+  }
+}
+
+/* Logo Card */
+.logo-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  background: var(--color-glass-surface);
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--border-radius-md);
+  backdrop-filter: blur(10px);
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.1s linear;
+  
+  /* Initial state for reveal animation */
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+}
+
+.logo-card.revealed {
+  animation: logoReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.logo-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Logo placeholder */
+.logo-placeholder {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.3s ease;
+  letter-spacing: -0.02em;
+}
+
+.logo-card:hover .logo-placeholder {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Keyframes for reveal animation */
+@keyframes logoReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Scroll float effect applied via inline styles in React component */
+.logo-card.floating {
+  transition: transform 0.1s linear;
+}
+
+/* Accessibility: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .logo-card,
+  .logo-card.revealed {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .logos-title,
+  .logos-title.visible {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Mobile optimization */
+@media (max-width: 639px) {
+  .logos-section {
+    padding: 80px 16px;
+  }
+  
+  .logos-grid {
+    gap: 12px;
+  }
+  
+  .logo-card {
+    padding: 24px 16px;
+  }
+}
