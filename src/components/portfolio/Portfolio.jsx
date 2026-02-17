@@ -46,6 +46,15 @@ const Portfolio = () => {
       image: 'poster2.jpg',
       type: 'portrait'
     },
+    {
+      id: 14,
+      title: 'The Minimal Tennis Poster',
+      category: 'Poster Design',
+      tags: ['POSTER', 'CLEAN'],
+      color: '#1a1a1a',
+      image: 'poster6.png',
+      type: 'portrait'
+    },
     // UI/UX Design - Now 1080x1920 Portraits as requested
     {
       id: 3,

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { User } from 'lucide-react'
 import './Founders.css'
 
 const Founders = () => {
@@ -8,23 +9,23 @@ const Founders = () => {
     {
       id: 1,
       name: 'Jay Patel',
-      role: 'Founder & CEO',
-      bio: 'Visionary artist with 10+ years experience in digital brand storytelling.',
+      role: 'Co-Founder & Creative Tech Lead',
+      bio: 'Creative tech lead specializing in UI design, web applications, and cinematic video editing.',
       image: 'jay.png'
     },
     {
       id: 2,
-      name: 'Sarah Miller',
-      role: 'Technical Lead',
-      bio: 'Architect of complex systems specializing in scalable web technologies.',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face'
+      name: 'Raj Patel',
+      role: 'Co-Founder & Design Systems Strategist',
+      bio: 'Design-driven strategist blending graphic design, UI systems, and performance-focused coding.',
+      image: 'raj.png'
     },
     {
       id: 3,
-      name: 'James Wilson',
-      role: 'Strategy Director',
-      bio: 'Data-driven strategist focused on human-centric growth and conversion.',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face'
+      name: 'Paras Thorat',
+      role: 'Co-Founder & Visual Brand Designer',
+      bio: 'Visual brand designer crafting impactful graphics that elevate identity and recognition.',
+      image: null
     }
   ]
 
@@ -65,7 +66,13 @@ const Founders = () => {
                 >
                   <div className="founder-modern-card">
                     <div className="founder-image-box">
-                      <img src={founder.image} alt={founder.name} />
+                      {founder.image ? (
+                        <img src={founder.image} alt={founder.name} />
+                      ) : (
+                        <div className="founder-image-placeholder">
+                          <User size={80} strokeWidth={1} />
+                        </div>
+                      )}
                     </div>
                     <div className="founder-info-content">
                       <h3 className="founder-name">{founder.name}</h3>

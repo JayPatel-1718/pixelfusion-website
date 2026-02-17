@@ -50,7 +50,7 @@ const Contact = () => {
     {
       icon: <Phone size={24} />,
       label: 'Call Us',
-      value: '+91 9313619495'
+      value: '+91 9313619495 , +91 8828303343'
     }
   ]
 
