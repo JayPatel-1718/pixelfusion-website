@@ -8,51 +8,51 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      name: 'James Mitchell',
-      role: 'CEO, Innovate Labs',
-      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face',
+      name: 'Ananya Sharma',
+      role: 'Marketing Head, Vayu Digital',
+      avatar: 'https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=100&h=100&fit=crop&crop=face',
       rating: 5,
-      text: 'Pixel Fusion delivered beyond our expectations. Their attention to detail and creative vision transformed our entire digital presence. The results speak for themselves.'
+      text: 'Working with PixelFusion was a complete game-changer. They understood our brand ethos and translated it into a design and strategy that truly resonates with our Indian audience.'
     },
     {
       id: 2,
-      name: 'Emily Rodriguez',
-      role: 'Founder, TechStart',
-      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face',
+      name: 'Rohan Mehta',
+      role: 'Founder, Sattire',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',
       rating: 5,
-      text: "Working with Pixel Fusion was a game-changer for our startup. They didn't just give us a solution — they gave us direction. From product clarity to execution, their approach helped us move faster and smarter."
+      text: 'The posters and creative designs delivered by PixelFusion helped us boost our social engagement by 200%. Their attention to detail and cultural nuance is unmatched.'
     },
     {
       id: 3,
-      name: 'Michael Chen',
-      role: 'Director, Global Ventures',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',
+      name: 'Priyanka Iyer',
+      role: 'Founder, Handwrite AI',
+      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face',
       rating: 5,
-      text: 'The team at Pixel Fusion brings incredible expertise and creativity to every project. They understood our vision immediately and delivered a stunning website that exceeded all expectations.'
+      text: 'Extremely professional and creative. The UI/UX overhaul of our platform as per the latest trends has received glowing feedback from our users. Highly recommended!'
     },
     {
       id: 4,
-      name: 'Sarah Jenkins',
-      role: 'CTO, TechFlow',
-      avatar: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&h=100&fit=crop&crop=face',
+      name: 'Arjun Gupta',
+      role: 'Director, SVT Architects',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face',
       rating: 5,
-      text: 'The scalability and performance of the solutions Pixel Fusion built for us have been outstanding. Our user engagement increased by 150% within the first month.'
+      text: 'PixelFusion helped us redefine our digital identity. Their design thinking approach is world-class, but their understanding of the local market needs is what sets them apart.'
     },
     {
       id: 5,
-      name: 'David Park',
-      role: 'Product Lead, ScaleUp',
-      avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face',
+      name: 'Kavita Reddy',
+      role: 'Growth Lead, NextZen Tech',
+      avatar: 'https://images.unsplash.com/photo-1589317621122-2c45037196ee?w=100&h=100&fit=crop&crop=face',
       rating: 5,
-      text: 'Pixel Fusion transformed our entire product experience. Their design thinking approach helped us identify pain points we never knew existed.'
+      text: 'The best decision we made for our rebrand was choosing PixelFusion. They deliver on their promise of high-end aesthetics and digital excellence every single time.'
     },
     {
       id: 6,
-      name: 'Lisa Thompson',
-      role: 'Marketing Director, BrandCo',
-      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=face',
+      name: 'Siddharth Nair',
+      role: 'Creative Director, Prism Media',
+      avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face',
       rating: 5,
-      text: 'The website Pixel Fusion created for us has received countless compliments from our clients. It perfectly represents our brand identity and values.'
+      text: 'A brilliant team that knows exactly how to catch the users eye. Their poster designs and visual storytelling have significantly improved our lead conversions.'
     }
   ]
 
@@ -116,22 +116,22 @@ const Testimonials = () => {
 
           {/* Navigation */}
           <div className="testimonials-nav">
-            <button 
-              className="testimonials-nav-btn" 
+            <button
+              className="testimonials-nav-btn"
               onClick={goToPrevious}
               aria-label="Previous testimonials"
             >
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
-            <button 
-              className="testimonials-nav-btn" 
+            <button
+              className="testimonials-nav-btn"
               onClick={goToNext}
               aria-label="Next testimonials"
             >
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
           </div>
@@ -156,14 +156,14 @@ const Testimonials = () => {
                 {/* Rating */}
                 <div className="testimonial-rating">
                   {[...Array(5)].map((_, i) => (
-                    <svg 
-                      key={i} 
-                      className="testimonial-star" 
-                      viewBox="0 0 24 24" 
+                    <svg
+                      key={i}
+                      className="testimonial-star"
+                      viewBox="0 0 24 24"
                       fill="currentColor"
                       xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                      <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
                     </svg>
                   ))}
                   <span className="testimonial-rating-text">5.0</span>
@@ -176,7 +176,7 @@ const Testimonials = () => {
               </div>
             </div>
           ))}
-          
+
           {/* Empty slots for consistent grid */}
           {[...Array(emptySlots)].map((_, i) => (
             <div key={`empty-${i}`} className="testimonial-card empty" />
@@ -187,10 +187,10 @@ const Testimonials = () => {
         <div className="testimonials-indicators">
           {[...Array(totalPages)].map((_, i) => {
             const pageIndex = i * itemsPerPage
-            const isActive = currentIndex === pageIndex || 
+            const isActive = currentIndex === pageIndex ||
               (currentIndex > pageIndex && currentIndex < pageIndex + itemsPerPage) ||
               (currentIndex === 0 && pageIndex === (totalPages - 1) * itemsPerPage)
-            
+
             return (
               <div
                 key={i}

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
-import { 
-  Compass, 
-  Layers, 
-  Grid, 
+import {
+  Compass,
+  Layers,
+  Grid,
   Megaphone,
   Sparkles,
   Zap,
@@ -95,8 +95,8 @@ function Feature() {
 
   // Mouse move for 3D tilt effect
   const handleMouseMove = useCallback((e) => {
-    if (!sectionRef.current) return
-    
+    if (!sectionRef.current || window.innerWidth <= 1024) return
+
     const rect = sectionRef.current.getBoundingClientRect()
     const x = (e.clientX - rect.left) / rect.width - 0.5
     const y = (e.clientY - rect.top) / rect.height - 0.5
@@ -108,8 +108,8 @@ function Feature() {
   }, [])
 
   return (
-    <section 
-      className="feature-section" 
+    <section
+      className="feature-section"
       ref={sectionRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -122,7 +122,7 @@ function Feature() {
             <span className="feature-title-accent">Consistency, Clarity, and Growth.</span>
           </h2>
           <p className="feature-subtitle">
-            Pixel Fusion brings strategic thinking, creative systems, and execution 
+            Pixel Fusion brings strategic thinking, creative systems, and execution
             that's designed for real platforms — not just presentations.
           </p>
         </div>
@@ -134,7 +134,7 @@ function Feature() {
             {featureCards.slice(0, 2).map((card, index) => {
               const Icon = card.icon
               const isVisible = visibleCards.has(index)
-              
+
               return (
                 <div
                   key={card.id}
@@ -142,7 +142,9 @@ function Feature() {
                   data-index={index}
                   style={{
                     transitionDelay: `${card.delay}ms`,
-                    transform: `rotateX(${-mousePosition.y * 3}deg) rotateY(${mousePosition.x * 3}deg)`
+                    transform: window.innerWidth > 1024
+                      ? `rotateX(${-mousePosition.y * 3}deg) rotateY(${mousePosition.x * 3}deg)`
+                      : 'none'
                   }}
                 >
                   <div className="feature-card-icon">
@@ -163,12 +165,12 @@ function Feature() {
               <div className="feature-line feature-line-left"></div>
               <div className="feature-line feature-line-right"></div>
             </div>
-            
+
             <div className="feature-phones">
               {phoneScreens.map((screen, index) => {
                 const Icon = screen.icon
                 return (
-                  <div 
+                  <div
                     key={index}
                     className={`feature-phone ${index === 1 ? 'feature-phone-center' : ''}`}
                     style={{
@@ -185,14 +187,14 @@ function Feature() {
                             <span className="phone-website-text">{screen.label}</span>
                           </>
                         )}
-                        
+
                         {screen.type === 'earbuds' && (
                           <>
                             <div className="phone-earbuds"></div>
                             <span className="phone-earbuds-text">{screen.label}</span>
                           </>
                         )}
-                        
+
                         {screen.type === 'notebook' && (
                           <>
                             <div className="phone-notebook-display"></div>
@@ -213,7 +215,7 @@ function Feature() {
               const Icon = card.icon
               const actualIndex = index + 2
               const isVisible = visibleCards.has(actualIndex)
-              
+
               return (
                 <div
                   key={card.id}
@@ -221,7 +223,9 @@ function Feature() {
                   data-index={actualIndex}
                   style={{
                     transitionDelay: `${card.delay}ms`,
-                    transform: `rotateX(${-mousePosition.y * 3}deg) rotateY(${mousePosition.x * 3}deg)`
+                    transform: window.innerWidth > 1024
+                      ? `rotateX(${-mousePosition.y * 3}deg) rotateY(${mousePosition.x * 3}deg)`
+                      : 'none'
                   }}
                 >
                   <div className="feature-card-icon">

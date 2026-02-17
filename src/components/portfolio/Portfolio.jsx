@@ -2,78 +2,138 @@ import React, { useState } from 'react'
 import './Portfolio.css'
 
 const Portfolio = () => {
-  const [activeFilter, setActiveFilter] = useState('All Projects')
+  const [activeFilter, setActiveFilter] = useState('Poster Design')
 
-  const filters = [
-    'All Projects',
-    'UI/UX Design',
-    'Branding',
-    'Fintech',
-    'SaaS'
-  ]
+  // Specific categories as requested
+  const filters = ['Poster Design', 'UI/UX Design', 'Logo Design', 'Thumbnail Designs', 'Insta Posts']
 
   const projects = [
+    // Poster Design (Show first) - 1080x1920 Portraits
     {
       id: 1,
-      title: 'NeoBank',
-      category: 'Fintech',
-      tags: ['FINTECH', 'UI/UX'],
-      color: '#1a1a2e'
+      title: 'The Tennis/Graffiti Poster',
+      category: 'Poster Design',
+      tags: ['POSTER', 'VIBRANT'],
+      color: '#2d5a3d',
+      image: 'poster.png',
+      type: 'portrait'
     },
     {
       id: 2,
-      title: 'Vivid App',
-      category: 'Branding',
-      tags: ['LIFESTYLE', 'BRANDING'],
-      color: '#ffd6c0'
+      title: 'The Fashion/Magazine Poster',
+      category: 'Poster Design',
+      tags: ['POSTER', 'CLEAN'],
+      color: '#1a1a1a',
+      image: 'poster3.jpg',
+      type: 'portrait'
     },
     {
+      id: 13,
+      title: 'The BMW Car Poster',
+      category: 'Poster Design',
+      tags: ['POSTER', 'CLEAN'],
+      color: '#1a1a1a',
+      image: 'poster4.jpg',
+      type: 'portrait'
+    },
+    {
+      id: 12,
+      title: 'The Minimal Tennis Poster',
+      category: 'Poster Design',
+      tags: ['POSTER', 'CLEAN'],
+      color: '#1a1a1a',
+      image: 'poster2.jpg',
+      type: 'portrait'
+    },
+    // UI/UX Design - Now 1080x1920 Portraits as requested
+    {
       id: 3,
-      title: 'EcoFlow',
-      category: 'SaaS',
-      tags: ['ENERGY', 'STRATEGY'],
-      color: '#2d5a3d'
+      title: 'Aether Mobile App',
+      category: 'UI/UX Design',
+      tags: ['MOBILE', 'UX'],
+      color: '#1a1a2e',
+      image: '/Moving out ui.png',
+      type: 'portrait'
     },
     {
       id: 4,
-      title: 'Orbit System',
+      title: 'Finance Wallet',
       category: 'UI/UX Design',
-      tags: ['SPACE TECH', 'UI/UX'],
-      color: '#0a0a1a'
+      tags: ['FINTECH', 'UI'],
+      color: '#0a0a1a',
+      image: '/portfolio/aether-wallet.jpg',
+      type: 'portrait'
     },
+    // Logo Design - 500x500 Squares
     {
       id: 5,
-      title: 'Luxe Collective',
-      category: 'Branding',
-      tags: ['FASHION', 'IDENTITY'],
-      color: '#f5f0e8'
+      title: 'Momo Town',
+      category: 'Logo Design',
+      tags: ['LOGO', 'BRANDING'],
+      color: '#ab3e03',
+      image: 'momotown.jpg',
+      type: 'square'
     },
     {
       id: 6,
-      title: 'Aether Wallet',
-      category: 'Fintech',
-      tags: ['CRYPTO', 'WEB3'],
-      color: '#e0f7f3'
+      title: 'Dhaara Labs Branding',
+      category: 'Logo Design',
+      tags: ['IDENTITY', 'MODERN'],
+      color: '#000000',
+      image: 'dhaaralabs.jpg',
+      type: 'square'
     },
+    {
+      id: 17,
+      title: 'Dhaara Labs',
+      category: 'Logo Design',
+      tags: ['IDENTITY', 'MODERN'],
+      color: '#000000',
+      image: 'dhaara labs 2.jpg',
+      type: 'square'
+    },
+    // Thumbnail Designs - 1920x1080 Landscapes
     {
       id: 7,
-      title: 'Zenith Cloud',
-      category: 'SaaS',
-      tags: ['TECH', 'PLATFORM'],
-      color: '#e8e8e8'
+      title: 'Gaming Essentials',
+      category: 'Thumbnail Designs',
+      tags: ['THUMBNAIL', 'GAMING'],
+      color: '#f5f0e8',
+      image: '/thumbnail.png',
+      type: 'landscape'
     },
     {
+      id: 18,
+      title: 'Future Tech Highlights',
+      category: 'Thumbnail Designs',
+      tags: ['THUMBNAIL', 'TECH'],
+      color: '#121212',
+      image: '/thumbnail.png',
+      type: 'landscape'
+    },
+    // Insta Posts - 1080x1080 Squares
+    {
       id: 8,
-      title: 'Pulse Analytics',
-      category: 'SaaS',
-      tags: ['HEALTH', 'SAAS'],
-      color: '#1a4d4d'
+      title: 'Creative Workflow',
+      category: 'Insta Posts',
+      tags: ['SOCIAL', 'MARKETING'],
+      color: '#0a0a1a',
+      image: '/socialpost.png',
+      type: 'square'
+    },
+    {
+      id: 19,
+      title: 'Brand Storytelling',
+      category: 'Insta Posts',
+      tags: ['INSTAGRAM', 'DESIGN'],
+      color: '#1a1a1a',
+      image: 'image.jpg',
+      type: 'square'
     }
   ]
 
-  const filteredProjects = activeFilter === 'All Projects' 
-    ? projects 
-    : projects.filter(p => p.category === activeFilter)
+  // Filter logic remains simple
+  const filteredProjects = projects.filter(p => p.category === activeFilter)
 
   return (
     <section className="portfolio-section" id="portfolio">
@@ -81,15 +141,14 @@ const Portfolio = () => {
         {/* Header */}
         <div className="portfolio-header">
           <h2 className="portfolio-title">
-            <span className="portfolio-title-white">Our Work</span>{' '}
-            <span className="portfolio-title-accent">Snapshot</span>
+            Our <span className="portfolio-title-accent">Creations.</span>
           </h2>
           <p className="portfolio-subtitle">
-            We bridge the gap between imagination and reality, crafting digital excellence through high-end design and cutting-edge technology.
+            Focused excellence in digital aesthetics. Explore our specific expertise across design domains.
           </p>
         </div>
 
-        {/* Filter Bar */}
+        {/* Categories Only Filter Bar */}
         <div className="portfolio-filter">
           <div className="portfolio-filter-container">
             {filters.map((filter) => (
@@ -104,26 +163,33 @@ const Portfolio = () => {
           </div>
         </div>
 
-        {/* Projects Grid */}
+        {/* Optimized Grid */}
         <div className="portfolio-grid">
           {filteredProjects.map((project) => (
-            <div key={project.id} className="portfolio-card reveal-item">
-              <div 
-                className="portfolio-card-image"
-                style={{ backgroundColor: project.color }}
-              >
-                <div className="portfolio-card-placeholder">
-                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="1"/>
-                    <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/>
-                    <path d="M21 15L16 10L5 21" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
+            <div key={project.id} className={`portfolio-card ${project.type}`}>
+              <div className="portfolio-card-image" style={{ backgroundColor: project.color }}>
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                ) : (
+                  <div className="portfolio-card-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+                      <rect x="3" y="3" width="18" height="18" rx="2" />
+                      <circle cx="8.5" cy="8.5" r="1.5" />
+                      <path d="M21 15L16 10L5 21" />
+                    </svg>
+                  </div>
+                )}
               </div>
+
               <div className="portfolio-card-overlay">
                 <div className="portfolio-card-tags">
-                  {project.tags.map((tag, index) => (
-                    <span key={index} className="portfolio-card-tag">{tag}</span>
+                  {project.tags.map((tag, idx) => (
+                    <span key={idx} className="portfolio-card-tag">{tag}</span>
                   ))}
                 </div>
                 <h3 className="portfolio-card-title">{project.title}</h3>
@@ -132,12 +198,12 @@ const Portfolio = () => {
           ))}
         </div>
 
-        {/* CTA Button */}
+        {/* CTA */}
         <div className="portfolio-cta">
-          <button className="portfolio-button" onClick={() => console.log('Navigate to full portfolio')}>
-            <span>View Full Portfolio</span>
-            <svg className="portfolio-button-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <button className="portfolio-button">
+            <span>Project Inquiries</span>
+            <svg className="portfolio-button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
         </div>

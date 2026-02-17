@@ -4,18 +4,15 @@ import MagneticButton from '../ui/MagneticButton'
 import './Navbar.css'
 
 const navLinks = [
-  { label: 'Home', href: '#hero' },
-  { label: 'Solutions', href: '#solutions' },
-  { label: 'Our Work', href: '#portfolio' },
-  { label: 'About Us', href: '#founders' },
+  { label: 'Home', href: '#hero', active: true },
+  { label: 'Solutions', href: '#solutions', active: false },
+  { label: 'Our Work', href: '#portfolio', active: false },
+  { label: 'About Us', href: '#founders', active: false },
 ]
-
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-    const [activeLink, setActiveLink] = useState('#hero')
-
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,36 +34,23 @@ function Navbar() {
           <span className="navbar__logo-text">PixelFusion</span>
         </a>
 
-{/* Desktop Navigation */}
-<nav className="navbar__desktop">
-  <div className="navbar__links">
-    {navLinks.map((link) => (
-      <a
-        key={link.label}
-        href={link.href}
-        onClick={() => setActiveLink(link.href)}
-        className={`navbar__link ${
-          activeLink === link.href ? 'navbar__link--active' : ''
-        }`}
-      >
-        {link.label}
-      </a>
-    ))}
-  </div>
-
-  <MagneticButton
-    variant="primary"
-    className="navbar__cta"
-    onClick={() =>
-      document
-        .getElementById('contact')
-        ?.scrollIntoView({ behavior: 'smooth' })
-    }
-  >
-    Contact Us
-  </MagneticButton>
-</nav>
-
+        {/* Desktop Navigation */}
+        <nav className="navbar__desktop">
+          <div className="navbar__links">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className={`navbar__link ${link.active ? 'navbar__link--active' : ''}`}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+          <MagneticButton variant="primary" className="navbar__cta" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+            Contact Us
+          </MagneticButton>
+        </nav>
 
         {/* Mobile Menu Toggle */}
         <button 

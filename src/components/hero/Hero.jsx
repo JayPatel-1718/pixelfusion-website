@@ -14,12 +14,9 @@ const services = [
 ]
 
 const clients = [
-  { id: 1, name: 'Nebula' },
-  { id: 2, name: 'Vertex' },
-  { id: 3, name: 'Orbit' },
-  { id: 4, name: 'Quantum' },
-  { id: 5, name: 'Hyperion' },
-  { id: 6, name: 'Zenith' },
+  { id: 1, name: 'HANDWRITE AI' },
+  { id: 2, name: 'SATTIRE' },
+  { id: 3, name: 'SVT ARCHITECTS' },
 ]
 
 function Hero() {
@@ -74,14 +71,14 @@ function Hero() {
         <div className="hero__gradient hero__gradient--orange"></div>
         <div className="hero__gradient hero__gradient--fade"></div>
       </div>
-      
+
       <div className="hero__container">
         <div className="hero__content">
           {/* Badge */}
           <Badge>
             A CREATIVE STUDIO FOR MODERN BRANDS
           </Badge>
-          
+
           {/* Main Headline */}
           <h1 className="hero__headline">
             Turning Creative Ideas Into{' '}
@@ -89,7 +86,7 @@ function Hero() {
               Scalable Digital Growth.
             </span>
           </h1>
-          
+
           {/* Services List */}
           <p className="hero__services">
             {services.map((service, index) => (
@@ -101,7 +98,7 @@ function Hero() {
               </span>
             ))}
           </p>
-          
+
           {/* CTA Buttons */}
           <div className="hero__actions">
             <MagneticButton variant="glass">
@@ -112,7 +109,7 @@ function Hero() {
               <ArrowRight size={18} />
             </MagneticButton>
           </div>
-          
+
           {/* Integrated Logos Section */}
           <div className="hero__logos">
             <p className="hero__logos-title">Trusted by innovative brands</p>
@@ -133,7 +130,7 @@ function Hero() {
           </div>
         </div>
       </div>
-      
+
       {/* Animation placeholders for react-bits integration */}
       <div className="hero__animations">
         <div className="hero__animation-slot" data-animation="particles"></div>
