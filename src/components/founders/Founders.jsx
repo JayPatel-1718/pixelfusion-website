@@ -7,10 +7,10 @@ const Founders = () => {
   const founders = [
     {
       id: 1,
-      name: 'Alex Chen',
-      role: 'Creative Director',
+      name: 'Jay Patel',
+      role: 'Founder & CEO',
       bio: 'Visionary artist with 10+ years experience in digital brand storytelling.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face'
+      image: 'jay.png'
     },
     {
       id: 2,

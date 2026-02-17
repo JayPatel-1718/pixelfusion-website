@@ -3,6 +3,7 @@ import './Portfolio.css'
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('Poster Design')
+  const [selectedProject, setSelectedProject] = useState(null)
 
   // Specific categories as requested
   const filters = ['Poster Design', 'UI/UX Design', 'Logo Design', 'Thumbnail Designs', 'Insta Posts']
@@ -135,6 +136,28 @@ const Portfolio = () => {
   // Filter logic remains simple
   const filteredProjects = projects.filter(p => p.category === activeFilter)
 
+  const handleProjectClick = (project) => {
+    setSelectedProject(project)
+    document.body.style.overflow = 'hidden' // Prevent scroll
+  }
+
+  const closeLightbox = () => {
+    setSelectedProject(null)
+    document.body.style.overflow = 'auto'
+  }
+
+  const navigateLightbox = (direction) => {
+    if (!selectedProject) return
+    const currentIndex = filteredProjects.findIndex(p => p.id === selectedProject.id)
+    let nextIndex
+    if (direction === 'next') {
+      nextIndex = (currentIndex + 1) % filteredProjects.length
+    } else {
+      nextIndex = (currentIndex - 1 + filteredProjects.length) % filteredProjects.length
+    }
+    setSelectedProject(filteredProjects[nextIndex])
+  }
+
   return (
     <section className="portfolio-section" id="portfolio">
       <div className="portfolio-container">
@@ -166,7 +189,11 @@ const Portfolio = () => {
         {/* Optimized Grid */}
         <div className="portfolio-grid">
           {filteredProjects.map((project) => (
-            <div key={project.id} className={`portfolio-card ${project.type}`}>
+            <div
+              key={project.id}
+              className={`portfolio-card ${project.type}`}
+              onClick={() => handleProjectClick(project)}
+            >
               <div className="portfolio-card-image" style={{ backgroundColor: project.color }}>
                 {project.image ? (
                   <img
@@ -208,6 +235,48 @@ const Portfolio = () => {
           </button>
         </div>
       </div>
+
+      {/* Lightbox / Modal */}
+      {selectedProject && (
+        <div className="portfolio-lightbox" onClick={closeLightbox}>
+          <div className="lightbox-overlay"></div>
+
+          <button className="lightbox-close" onClick={closeLightbox}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+
+          <div className="lightbox-content" onClick={e => e.stopPropagation()}>
+            <button className="lightbox-nav prev" onClick={() => navigateLightbox('prev')}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+
+            <div className="lightbox-main">
+              <div className="lightbox-image-container">
+                <img src={selectedProject.image} alt={selectedProject.title} />
+              </div>
+              <div className="lightbox-details">
+                <div className="lightbox-tags">
+                  {selectedProject.tags.map((tag, idx) => (
+                    <span key={idx} className="lightbox-tag">{tag}</span>
+                  ))}
+                </div>
+                <h3 className="lightbox-title">{selectedProject.title}</h3>
+                <p className="lightbox-category">{selectedProject.category}</p>
+              </div>
+            </div>
+
+            <button className="lightbox-nav next" onClick={() => navigateLightbox('next')}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   )
 }

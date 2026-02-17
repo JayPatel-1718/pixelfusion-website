@@ -128,6 +128,21 @@ function Hero() {
               })}
             </div>
           </div>
+
+          {/* Scrolling Appreciation Ticker */}
+          <div className="hero__ticker">
+            <div className="hero__ticker-track">
+              <span className="hero__ticker-item">The most innovative agency we've ever worked with ✦</span>
+              <span className="hero__ticker-item">PixelFusion transformed our digital presence ✦</span>
+              <span className="hero__ticker-item">Exceptional creativity and scaling growth ✦</span>
+              <span className="hero__ticker-item">A true partner in digital excellence ✦</span>
+              {/* Duplicate for seamless loop */}
+              <span className="hero__ticker-item">The most innovative agency we've ever worked with ✦</span>
+              <span className="hero__ticker-item">PixelFusion transformed our digital presence ✦</span>
+              <span className="hero__ticker-item">Exceptional creativity and scaling growth ✦</span>
+              <span className="hero__ticker-item">A true partner in digital excellence ✦</span>
+            </div>
+          </div>
         </div>
       </div>
 

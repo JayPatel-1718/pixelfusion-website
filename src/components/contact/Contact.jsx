@@ -57,7 +57,7 @@ const Contact = () => {
   const socialLinks = [
     {
       icon: <Instagram size={20} />,
-      href: 'https://www.instagram.com/pixelfusion.agency_/',
+      href: 'https://www.instagram.com/pixelfusion_14/',
       label: 'Instagram'
     },
     {
