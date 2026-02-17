@@ -4,15 +4,16 @@ import MagneticButton from '../ui/MagneticButton'
 import './Navbar.css'
 
 const navLinks = [
-  { label: 'Home', href: '#hero', active: true },
-  { label: 'Solutions', href: '#solutions', active: false },
-  { label: 'Our Work', href: '#portfolio', active: false },
-  { label: 'About Us', href: '#founders', active: false },
+  { label: 'Home', href: '#hero' },
+  { label: 'Solutions', href: '#solutions' },
+  { label: 'Our Work', href: '#portfolio' },
+  { label: 'About Us', href: '#founders' },
 ]
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeLink, setActiveLink] = useState('#hero')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,13 +24,18 @@ function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const handleNavLinkClick = (href) => {
+    setActiveLink(href)
+    setIsMobileMenuOpen(false)
+  }
+
   return (
     <header className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__container">
         {/* Logo */}
-        <a href="#home" className="navbar__logo">
-          <div className="navbar__logo-icon">
-            <Box size={24} />
+        <a href="#hero" className="navbar__logo" onClick={() => setActiveLink('#hero')}>
+          <div className="navbar__logo-image-container">
+            <img src="/logo.png" alt="PixelFusion Logo" className="navbar__logo-image" />
           </div>
           <span className="navbar__logo-text">PixelFusion</span>
         </a>
@@ -41,19 +47,23 @@ function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className={`navbar__link ${link.active ? 'navbar__link--active' : ''}`}
+                onClick={() => handleNavLinkClick(link.href)}
+                className={`navbar__link ${activeLink === link.href ? 'navbar__link--active' : ''}`}
               >
                 {link.label}
               </a>
             ))}
           </div>
-          <MagneticButton variant="primary" className="navbar__cta" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+          <MagneticButton variant="primary" className="navbar__cta" onClick={() => {
+            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+            setActiveLink('#contact')
+          }}>
             Contact Us
           </MagneticButton>
         </nav>
 
         {/* Mobile Menu Toggle */}
-        <button 
+        <button
           className="navbar__mobile-toggle"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
@@ -69,15 +79,15 @@ function Navbar() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className={`navbar__mobile-link ${link.active ? 'navbar__mobile-link--active' : ''}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`navbar__mobile-link ${activeLink === link.href ? 'navbar__mobile-link--active' : ''}`}
+                  onClick={() => handleNavLinkClick(link.href)}
                 >
                   {link.label}
                 </a>
               ))}
               <MagneticButton variant="primary" className="navbar__mobile-cta" onClick={() => {
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-                setIsMobileMenuOpen(false)
+                handleNavLinkClick('#contact')
               }}>
                 Contact Us
               </MagneticButton>
