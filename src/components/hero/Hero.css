@@ -20,21 +20,6 @@
   height: 100%;
 }
 
-.hero__gradient--green {
-  left: 0;
-  top: 0;
-  background: radial-gradient(ellipse 80% 50% at 20% 40%,
-      rgba(15, 61, 62, 0.6) 0%,
-      transparent 50%);
-}
-
-.hero__gradient--orange {
-  right: 0;
-  top: 0;
-  background: radial-gradient(ellipse 80% 50% at 80% 40%,
-      rgba(92, 40, 21, 0.7) 0%,
-      transparent 50%);
-}
 
 .hero__gradient--fade {
   bottom: 0;

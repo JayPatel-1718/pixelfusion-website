@@ -4,6 +4,7 @@ import Badge from '../ui/Badge'
 import MagneticButton from '../ui/MagneticButton'
 import './Hero.css'
 import './ShinyText.css'
+import LiquidBackground from './LiquidBackground'
 
 const services = [
   'Social Media',
@@ -67,8 +68,7 @@ function Hero() {
   return (
     <section className="hero" id="hero" ref={sectionRef}>
       <div className="hero__background">
-        <div className="hero__gradient hero__gradient--green"></div>
-        <div className="hero__gradient hero__gradient--orange"></div>
+        <LiquidBackground />
         <div className="hero__gradient hero__gradient--fade"></div>
       </div>
 
