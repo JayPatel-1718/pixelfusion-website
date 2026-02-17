@@ -35,9 +35,8 @@ function Navbar() {
         {/* Logo */}
         <a href="#hero" className="navbar__logo" onClick={() => setActiveLink('#hero')}>
           <div className="navbar__logo-image-container">
-            <img src="/logo.png" alt="PixelFusion Logo" className="navbar__logo-image" />
+            <img src="/PF OF Text W.png" alt="PixelFusion Logo" className="navbar__logo-image" />
           </div>
-          <span className="navbar__logo-text">PixelFusion</span>
         </a>
 
         {/* Desktop Navigation */}

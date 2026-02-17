@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 393.17 88.99">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f15d22;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        font-family: RITTERU-Regular, RITTERU;
+        font-size: 59px;
+      }
+
+      .cls-3 {
+        fill: #15aa4b;
+      }
+    </style>
+  </defs>
+  <text class="cls-2" transform="translate(85.33 72.05)"><tspan x="0" y="0">PixelFusion</tspan></text>
+  <g>
+    <g>
+      <path class="cls-1" d="m42.94,27.38h36.84c0,9-7.31,16.31-16.31,16.31h-20.53v-16.31h0Z"/>
+      <g>
+        <rect class="cls-3" x="42.94" y="47.14" width="10.74" height="26.03"/>
+        <rect class="cls-3" x="42.94" y="47.14" width="26.03" height="10.74"/>
+        <circle class="cls-3" cx="62.17" cy="66.59" r="5"/>
+      </g>
+    </g>
+    <path class="cls-1" d="m42.94,11.19h36.84c0,9-7.31,16.31-16.31,16.31h-20.53V11.19h0Z" transform="translate(122.73 38.69) rotate(180)"/>
+  </g>
+</svg>
