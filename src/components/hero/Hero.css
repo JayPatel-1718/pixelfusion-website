@@ -61,6 +61,7 @@
   line-height: 1.1;
   letter-spacing: -0.03em;
   margin-bottom: 24px;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
 
 .hero__headline-gradient {
@@ -83,6 +84,7 @@
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
 }
 
 .hero__service-item {
@@ -105,7 +107,7 @@
 .hero__service-separator {
   color: #F2542D;
   font-size: 1.25rem;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 /* CTA Actions */
