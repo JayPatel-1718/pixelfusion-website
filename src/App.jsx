@@ -6,6 +6,7 @@ import Testimonials from './components/testimonials/Testimonials'
 import Contact from './components/contact/Contact'
 import Founders from './components/founders/Founders'
 import Feature from './components/feature/Feature'
+import Products from './components/products/Products'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Navbar />
       <Hero />
       <Solutions />
+      <Products />
       <Portfolio />
       <Feature />
       <Founders />

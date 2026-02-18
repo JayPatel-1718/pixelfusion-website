@@ -25,7 +25,7 @@ const Founders = () => {
       name: 'Paras Thorat',
       role: 'Co-Founder & Visual Brand Designer',
       bio: 'Visual brand designer crafting impactful graphics that elevate identity and recognition.',
-      image: null
+      image: 'paras.png'
     }
   ]
 
