@@ -273,8 +273,11 @@
 @media (max-width: 768px) {
   .hero {
     padding-top: 100px;
-    min-height: auto;
+    min-height: 100svh;
     padding-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .hero__headline {
