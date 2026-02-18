@@ -61,10 +61,37 @@ const Founders = () => {
                     '--index': index,
                     zIndex: hoveredAvatar === founder.id ? 100 : index + 1
                   }}
-                  onMouseEnter={() => setHoveredAvatar(founder.id)}
-                  onMouseLeave={() => setHoveredAvatar(null)}
+                  onMouseEnter={() => {
+                    if (window.matchMedia('(hover: hover)').matches) {
+                      setHoveredAvatar(founder.id)
+                    }
+                  }}
+                  onMouseLeave={() => {
+                    if (window.matchMedia('(hover: hover)').matches) {
+                      setHoveredAvatar(null)
+                    }
+                  }}
+                  onClick={(e) => {
+                    // Prevent immediate close on mobile due to persistent hover
+                    if (!window.matchMedia('(hover: hover)').matches) {
+                      setHoveredAvatar(hoveredAvatar === founder.id ? null : founder.id)
+                    }
+                  }}
                 >
                   <div className="founder-modern-card">
+                    {/* Close button for mobile */}
+                    {hoveredAvatar === founder.id && (
+                      <button
+                        className="founder-close-btn"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setHoveredAvatar(null);
+                        }}
+                      >
+                        ×
+                      </button>
+                    )}
+
                     <div className="founder-image-box">
                       {founder.image ? (
                         <img src={founder.image} alt={founder.name} />
@@ -74,6 +101,7 @@ const Founders = () => {
                         </div>
                       )}
                     </div>
+                    <span className="founder-collapsed-name">{founder.name.split(' ')[0]}</span>
                     <div className="founder-info-content">
                       <h3 className="founder-name">{founder.name}</h3>
                       <span className="founder-role">{founder.role}</span>

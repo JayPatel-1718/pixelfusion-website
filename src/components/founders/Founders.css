@@ -17,6 +17,19 @@
   align-items: center;
 }
 
+@media (max-width: 992px) {
+  .founders-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    text-align: center;
+  }
+
+  .founders-content {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
 /* Left Column - Content */
 .founders-content {
   max-width: 560px;
@@ -85,12 +98,27 @@
   background: transparent;
   border-radius: 50%;
   overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.45, 1);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
-.founder-card-wrapper:hover .founder-modern-card,
+@media (hover: hover) {
+  .founder-card-wrapper:hover .founder-modern-card {
+    width: 300px;
+    height: auto;
+    min-height: 400px;
+    border-radius: 28px;
+    background: rgba(15, 17, 20, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-color: rgba(242, 84, 45, 0.3);
+    padding: 24px;
+    z-index: 100;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+  }
+}
+
 .founder-card-wrapper.hovered .founder-modern-card {
   width: 300px;
   height: auto;
@@ -117,7 +145,16 @@
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.founder-card-wrapper:hover .founder-image-box {
+@media (hover: hover) {
+  .founder-card-wrapper:hover .founder-image-box {
+    height: 200px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+}
+
+.founder-card-wrapper.hovered .founder-image-box {
   height: 200px;
   border-radius: 20px;
   overflow: hidden;
@@ -160,6 +197,33 @@
   transform: scale(1.2);
 }
 
+.founder-collapsed-name {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.8;
+  transition: all 0.4s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.founder-card-wrapper:hover .founder-collapsed-name {
+  opacity: 0;
+  transform: translate(-50%, 10px);
+}
+
+@media (min-width: 769px) {
+  .founder-collapsed-name {
+    display: none;
+  }
+}
+
 /* Info Content Reveal */
 .founder-info-content {
   opacity: 0;
@@ -169,7 +233,15 @@
   pointer-events: none;
 }
 
-.founder-card-wrapper:hover .founder-info-content {
+@media (hover: hover) {
+  .founder-card-wrapper:hover .founder-info-content {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+.founder-card-wrapper.hovered .founder-info-content {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
@@ -238,90 +310,136 @@
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
   .founders-avatar-group {
-    width: 400px;
-    height: 400px;
+    width: 440px;
+    height: 440px;
   }
 
   .founder-modern-card {
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
   }
 
   .founder-card-wrapper:nth-child(1) {
-    transform: translateX(-100px) translateY(-50px);
+    transform: translateX(-110px) translateY(-50px);
   }
 
   .founder-card-wrapper:nth-child(2) {
-    transform: translateX(0px) translateY(-100px);
+    transform: translateX(0px) translateY(-110px);
   }
 
   .founder-card-wrapper:nth-child(3) {
-    transform: translateX(100px) translateY(-50px);
+    transform: translateX(110px) translateY(-50px);
   }
 }
 
 @media (max-width: 768px) {
   .founders-section {
-    padding: 80px 16px;
-  }
-
-  .founders-grid {
-    gap: 48px;
-  }
-
-  .founders-title {
-    font-size: 2.5rem;
-    margin-bottom: 24px;
-  }
-
-  .founders-story {
-    font-size: 1rem;
-    text-align: left;
+    padding: 80px 20px;
   }
 
   .founders-avatar-group {
-    width: 320px;
-    height: 320px;
-  }
-
-  .founder-modern-card {
-    width: 120px;
-    height: 120px;
-  }
-
-  .founder-card-wrapper:nth-child(1) {
-    transform: translateX(-80px) translateY(-40px);
-  }
-
-  .founder-card-wrapper:nth-child(2) {
-    transform: translateX(0px) translateY(-80px);
-  }
-
-  .founder-card-wrapper:nth-child(3) {
-    transform: translateX(80px) translateY(-40px);
-  }
-
-  .founder-card-wrapper:hover .founder-modern-card {
-    width: 280px;
-    padding: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .founders-avatar-group {
+    width: 100%;
     height: auto;
-    flex-direction: column;
-    gap: 30px;
+    min-height: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 20px;
   }
 
   .founder-card-wrapper {
     position: relative;
     transform: none !important;
+    width: 130px;
+    height: 130px;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.45, 1);
+  }
+
+  .founder-card-wrapper.hovered {
+    width: 100%;
+    height: auto;
+    max-width: 340px;
+    margin: 10px 0;
   }
 
   .founder-modern-card {
-    width: 160px;
-    height: 160px;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+
+  .founder-card-wrapper.hovered .founder-modern-card {
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    min-height: auto;
+    padding: 20px;
+    background: rgba(15, 17, 20, 0.98);
+    border-color: rgba(242, 84, 45, 0.5);
+  }
+
+  .founder-card-wrapper.hovered .founder-image-box {
+    height: 180px;
+    border-radius: 16px;
+  }
+
+  .founder-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    z-index: 10;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+  }
+
+  .founders-title {
+    font-size: 2.8rem;
+    margin-bottom: 16px;
+  }
+
+  .founders-story {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .founders-section {
+    padding: 80px 16px;
+  }
+
+  .founders-avatar-group {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .founder-modern-card {
+    width: 130px;
+    height: 130px;
+  }
+
+  .founder-card-wrapper:hover .founder-modern-card,
+  .founder-card-wrapper.hovered .founder-modern-card {
+    width: calc(100vw - 40px);
+    max-width: 340px;
+  }
+
+  .founders-title {
+    font-size: 2.25rem;
   }
 }
 
