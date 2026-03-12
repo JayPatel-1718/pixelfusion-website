@@ -55,6 +55,15 @@ const Portfolio = () => {
       image: 'poster6.png',
       type: 'portrait'
     },
+    {
+      id: 15,
+      title: 'The Minimal Nike Poster',
+      category: 'Poster Design',
+      tags: ['POSTER', 'CLEAN'],
+      color: '#1a1a1a',
+      image: 'poster7.png',
+      type: 'portrait'
+    },
     // UI/UX Design - Now 1080x1920 Portraits as requested
     {
       id: 3,

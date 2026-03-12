@@ -177,6 +177,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -191,7 +192,7 @@
       "card1 card2"
       "card4 card3";
   }
-  
+
   .solution-card--website {
     grid-row: span 1;
   }
@@ -201,17 +202,17 @@
   .solutions-section {
     padding: 80px 16px;
   }
-  
+
   .solutions-grid {
     display: flex;
     flex-direction: column;
   }
-  
+
   .solution-card--ux {
     flex-direction: column;
     gap: 16px;
   }
-  
+
   .solution-card {
     padding: 24px;
   }
@@ -219,13 +220,14 @@
 
 /* Accessibility: Reduced motion */
 @media (prefers-reduced-motion: reduce) {
+
   .solution-card,
   .solution-card.visible {
     animation: none;
     opacity: 1;
     transform: none;
   }
-  
+
   .solution-card:hover {
     transform: none;
   }
