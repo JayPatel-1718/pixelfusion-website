@@ -81,10 +81,10 @@ function Hero() {
 
                     {/* CTA Buttons */}
                     <div className="hero__actions">
-                        <MagneticButton variant="glass">
+                        <MagneticButton variant="glass" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
                             Start a Project
                         </MagneticButton>
-                        <MagneticButton variant="glass">
+                        <MagneticButton variant="glass" onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}>
                             View Our Work
                             <ArrowRight size={18} />
                         </MagneticButton>

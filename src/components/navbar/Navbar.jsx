@@ -1,20 +1,24 @@
 import { useState, useEffect } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { Box, Menu, X } from 'lucide-react'
 import MagneticButton from '../ui/MagneticButton'
 import './Navbar.css'
 
 const navLinks = [
-  { label: 'Home', href: '#hero' },
-  { label: 'Products', href: '#products' },
-  { label: 'Solutions', href: '#solutions' },
-  { label: 'Our Work', href: '#portfolio' },
-  { label: 'About Us', href: '#founders' },
+  { label: 'Home', href: '/#hero', hash: '#hero' },
+  { label: 'Products', href: '/products', hash: '' },
+  { label: 'Solutions', href: '/#solutions', hash: '#solutions' },
+  { label: 'Our Work', href: '/#portfolio', hash: '#portfolio' },
+  { label: 'About Us', href: '/#founders', hash: '#founders' },
 ]
 
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [activeLink, setActiveLink] = useState('#hero')
+  const [activeLink, setActiveLink] = useState('/#hero')
+  
+  const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,16 +29,56 @@ function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const handleNavLinkClick = (href) => {
-    setActiveLink(href)
+  const handleNavLinkClick = (e, link) => {
+    e.preventDefault()
     setIsMobileMenuOpen(false)
+    setActiveLink(link.href)
+
+    if (link.href === '/products') {
+      navigate('/products')
+      window.scrollTo(0, 0)
+    } else {
+      if (location.pathname !== '/') {
+        navigate('/')
+        setTimeout(() => {
+          document.getElementById(link.hash.substring(1))?.scrollIntoView({ behavior: 'smooth' })
+        }, 100)
+      } else {
+        document.getElementById(link.hash.substring(1))?.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+  }
+
+  const handleLogoClick = (e) => {
+    e.preventDefault()
+    setActiveLink('/#hero')
+    if (location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => {
+        document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })
+      }, 100)
+    } else {
+      document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  const handleContactClick = () => {
+    setIsMobileMenuOpen(false)
+    if (location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => {
+        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+      }, 100)
+    } else {
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   return (
     <header className={`navbar ${isScrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__container">
         {/* Logo */}
-        <a href="#hero" className="navbar__logo" onClick={() => setActiveLink('#hero')}>
+        <a href="/" className="navbar__logo" onClick={handleLogoClick}>
           <div className="navbar__logo-image-container">
             <img src="/PF OF Text W.png" alt="PixelFusion Logo" className="navbar__logo-image" />
           </div>
@@ -47,17 +91,14 @@ function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                onClick={() => handleNavLinkClick(link.href)}
+                onClick={(e) => handleNavLinkClick(e, link)}
                 className={`navbar__link ${activeLink === link.href ? 'navbar__link--active' : ''}`}
               >
                 {link.label}
               </a>
             ))}
           </div>
-          <MagneticButton variant="primary" className="navbar__cta" onClick={() => {
-            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-            setActiveLink('#contact')
-          }}>
+          <MagneticButton variant="primary" className="navbar__cta" onClick={handleContactClick}>
             Contact Us
           </MagneticButton>
         </nav>
@@ -80,15 +121,12 @@ function Navbar() {
                   key={link.label}
                   href={link.href}
                   className={`navbar__mobile-link ${activeLink === link.href ? 'navbar__mobile-link--active' : ''}`}
-                  onClick={() => handleNavLinkClick(link.href)}
+                  onClick={(e) => handleNavLinkClick(e, link)}
                 >
                   {link.label}
                 </a>
               ))}
-              <MagneticButton variant="primary" className="navbar__mobile-cta" onClick={() => {
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
-                handleNavLinkClick('#contact')
-              }}>
+              <MagneticButton variant="primary" className="navbar__mobile-cta" onClick={handleContactClick}>
                 Contact Us
               </MagneticButton>
             </nav>
