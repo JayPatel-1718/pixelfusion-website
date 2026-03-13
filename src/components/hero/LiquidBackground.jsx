@@ -33,7 +33,7 @@ const LiquidBackground = () => {
                         key={i}
                         className={`liquid-blob ${blob.moveType}`}
                         style={{
-                            background: blob.color,
+                            background: `radial-gradient(circle at center, ${blob.color} 0%, transparent 70%)`,
                             width: blob.size,
                             height: blob.size,
                             top: blob.top,
@@ -59,7 +59,6 @@ const LiquidBackground = () => {
                 .liquid-water-layer {
                     position: absolute;
                     inset: 0;
-                    filter: blur(80px);
                     will-change: transform;
                 }
 
