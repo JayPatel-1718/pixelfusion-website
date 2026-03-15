@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import Badge from '../ui/Badge'
 import MagneticButton from '../ui/MagneticButton'
@@ -23,6 +24,8 @@ const clients = [
 function Hero() {
     const sectionRef = useRef(null)
     const [isInView, setIsInView] = useState(false)
+    const navigate = useNavigate()
+    const location = useLocation()
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -47,9 +50,19 @@ function Hero() {
 
     // Navigation function for smooth scrolling to sections
     const scrollToSection = (sectionId) => {
-        const element = document.getElementById(sectionId)
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        if (location.pathname !== '/') {
+            navigate('/')
+            setTimeout(() => {
+                const element = document.getElementById(sectionId)
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }
+            }, 100)
+        } else {
+            const element = document.getElementById(sectionId)
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }
         }
     }
 
