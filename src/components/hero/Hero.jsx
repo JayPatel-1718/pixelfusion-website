@@ -45,6 +45,14 @@ function Hero() {
         }
     }, [])
 
+    // Navigation function for smooth scrolling to sections
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId)
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
+    }
+
     return (
         <section className={`hero ${isInView ? 'is-visible' : ''}`} id="hero" ref={sectionRef}>
             <div className="hero__background">
@@ -81,10 +89,10 @@ function Hero() {
 
                     {/* CTA Buttons */}
                     <div className="hero__actions">
-                        <MagneticButton variant="glass" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                        <MagneticButton variant="glass" onClick={() => scrollToSection('contact')}>
                             Start a Project
                         </MagneticButton>
-                        <MagneticButton variant="glass" onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}>
+                        <MagneticButton variant="glass" onClick={() => scrollToSection('portfolio')}>
                             View Our Work
                             <ArrowRight size={18} />
                         </MagneticButton>
