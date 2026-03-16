@@ -70,7 +70,7 @@ const Portfolio = () => {
       category: 'Poster Design',
       tags: ['POSTER', 'CLEAN'],
       color: '#1a1a1a',
-      image: 'Poster8.png',
+      image: 'poster8.png',
       type: 'portrait'
     },
     // UI/UX Design - Now 1080x1920 Portraits as requested
