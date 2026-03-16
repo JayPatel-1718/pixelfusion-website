@@ -64,6 +64,15 @@ const Portfolio = () => {
       image: 'Poster7.png',
       type: 'portrait'
     },
+    {
+      id: 16,
+      title: 'STATIC PULSE Poster',
+      category: 'Poster Design',
+      tags: ['POSTER', 'CLEAN'],
+      color: '#1a1a1a',
+      image: 'Poster8.png',
+      type: 'portrait'
+    },
     // UI/UX Design - Now 1080x1920 Portraits as requested
     {
       id: 3,
