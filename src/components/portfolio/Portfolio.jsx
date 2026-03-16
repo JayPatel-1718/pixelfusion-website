@@ -73,6 +73,15 @@ const Portfolio = () => {
       image: 'poster8.png',
       type: 'portrait'
     },
+    {
+      id: 22,
+      title: 'DRAKES - GRAVITY SHIFT Poster',
+      category: 'Poster Design',
+      tags: ['POSTER', 'CLEAN'],
+      color: '#1a1a1a',
+      image: 'poster9.png',
+      type: 'portrait'
+    },
     // UI/UX Design - Now 1080x1920 Portraits as requested
     {
       id: 3,
