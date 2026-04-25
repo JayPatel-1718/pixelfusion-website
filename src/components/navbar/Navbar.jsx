@@ -19,6 +19,20 @@ function Navbar() {
   
   const navigate = useNavigate()
   const location = useLocation()
+  const [ctaColorIndex, setCtaColorIndex] = useState(0)
+
+  const colors = [
+    '#E07A2F', // Original Orange
+    '#3B82F6', // Blue
+    '#10B981', // Green
+    '#8B5CF6', // Purple
+    '#F43F5E', // Rose
+    '#F2542D'  // Sunset
+  ]
+
+  const handleCtaHover = () => {
+    setCtaColorIndex((prev) => (prev + 1) % colors.length)
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -98,7 +112,17 @@ function Navbar() {
               </a>
             ))}
           </div>
-          <MagneticButton variant="primary" className="navbar__cta" onClick={handleContactClick}>
+          <MagneticButton 
+            variant="primary" 
+            className="navbar__cta" 
+            onClick={handleContactClick}
+            onMouseEnter={handleCtaHover}
+            style={{ 
+              background: colors[ctaColorIndex],
+              borderColor: colors[ctaColorIndex],
+              transition: 'background 0.5s ease, border-color 0.5s ease, transform 0.1s ease-out'
+            }}
+          >
             Contact Us
           </MagneticButton>
         </nav>
@@ -126,7 +150,17 @@ function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <MagneticButton variant="primary" className="navbar__mobile-cta" onClick={handleContactClick}>
+              <MagneticButton 
+                variant="primary" 
+                className="navbar__mobile-cta" 
+                onClick={handleContactClick}
+                onMouseEnter={handleCtaHover}
+                style={{ 
+                  background: colors[ctaColorIndex],
+                  borderColor: colors[ctaColorIndex],
+                  transition: 'background 0.5s ease, border-color 0.5s ease, transform 0.1s ease-out'
+                }}
+              >
                 Contact Us
               </MagneticButton>
             </nav>

@@ -6,6 +6,8 @@ function MagneticButton({
   variant = 'glass', 
   className = '', 
   onClick,
+  onMouseEnter,
+  onMouseLeave,
   ...props 
 }) {
   const buttonRef = useRef(null)
@@ -32,14 +34,16 @@ function MagneticButton({
     setPosition({ x: clampedX, y: clampedY })
   }, [])
 
-  const handleMouseLeave = useCallback(() => {
+  const handleMouseLeave = useCallback((e) => {
     setPosition({ x: 0, y: 0 })
     setIsHovered(false)
-  }, [])
+    if (onMouseLeave) onMouseLeave(e)
+  }, [onMouseLeave])
 
-  const handleMouseEnter = useCallback(() => {
+  const handleMouseEnter = useCallback((e) => {
     setIsHovered(true)
-  }, [])
+    if (onMouseEnter) onMouseEnter(e)
+  }, [onMouseEnter])
 
   return (
     <button
@@ -50,6 +54,7 @@ function MagneticButton({
       onMouseEnter={handleMouseEnter}
       onClick={onClick}
       style={{
+        ...props.style,
         transform: `translate(${position.x}px, ${position.y}px)`,
       }}
       {...props}

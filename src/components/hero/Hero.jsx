@@ -19,6 +19,8 @@ const clients = [
     { id: 1, name: 'HANDWRITE AI' },
     { id: 2, name: 'SATTIRE' },
     { id: 3, name: 'SVT ARCHITECTS' },
+    { id: 4, name: 'Lienzo Cap' },
+    { id: 5, name: 'Spark Start Solutions' },
 ]
 
 function Hero() {

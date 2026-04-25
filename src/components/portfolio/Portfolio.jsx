@@ -6,7 +6,7 @@ const Portfolio = () => {
   const [selectedProject, setSelectedProject] = useState(null)
 
   // Specific categories as requested
-  const filters = ['Poster Design', 'UI/UX Design', 'Logo Design', 'Thumbnail Designs', 'Insta Posts']
+  const filters = ['Poster Design', 'UI/UX Design', 'Logo Design', 'Insta Posts']
 
   const projects = [
     // Poster Design (Show first) - 1080x1920 Portraits
@@ -85,7 +85,7 @@ const Portfolio = () => {
     // UI/UX Design - Now 1080x1920 Portraits as requested
     {
       id: 3,
-      title: 'Aether Mobile App',
+      title: 'AMoving Out UI Design',
       category: 'UI/UX Design',
       tags: ['MOBILE', 'UX'],
       color: '#1a1a2e',
@@ -94,11 +94,11 @@ const Portfolio = () => {
     },
     {
       id: 4,
-      title: 'Finance Wallet',
+      title: 'She Ventures UI Design',
       category: 'UI/UX Design',
-      tags: ['FINTECH', 'UI'],
+      tags: ['WEBSITE', 'UI'],
       color: '#0a0a1a',
-      image: '/portfolio/aether-wallet.jpg',
+      image: 'Sheventures.png',
       type: 'portrait'
     },
     // Logo Design - 500x500 Squares
@@ -112,15 +112,6 @@ const Portfolio = () => {
       type: 'square'
     },
     {
-      id: 6,
-      title: 'Dhaara Labs Branding',
-      category: 'Logo Design',
-      tags: ['IDENTITY', 'MODERN'],
-      color: '#000000',
-      image: 'dhaaralabs.jpg',
-      type: 'square'
-    },
-    {
       id: 17,
       title: 'Dhaara Labs',
       category: 'Logo Design',
@@ -129,44 +120,28 @@ const Portfolio = () => {
       image: 'dhaara labs 2.jpg',
       type: 'square'
     },
-    // Thumbnail Designs - 1920x1080 Landscapes
-    {
-      id: 7,
-      title: 'Gaming Essentials',
-      category: 'Thumbnail Designs',
-      tags: ['THUMBNAIL', 'GAMING'],
-      color: '#f5f0e8',
-      image: '/thumbnail.png',
-      type: 'landscape'
-    },
     {
       id: 18,
-      title: 'Future Tech Highlights',
-      category: 'Thumbnail Designs',
-      tags: ['THUMBNAIL', 'TECH'],
-      color: '#121212',
-      image: '/thumbnail.png',
-      type: 'landscape'
-    },
-    // Insta Posts - 1080x1080 Squares
-    {
-      id: 8,
-      title: 'Creative Workflow',
-      category: 'Insta Posts',
-      tags: ['SOCIAL', 'MARKETING'],
-      color: '#0a0a1a',
-      image: '/socialpost.png',
+      title: 'MOCA',
+      category: 'Logo Design',
+      tags: ['IDENTITY', 'MODERN'],
+      color: '#000000',
+      image: 'moca.png',
       type: 'square'
     },
     {
       id: 19,
-      title: 'Brand Storytelling',
-      category: 'Insta Posts',
-      tags: ['INSTAGRAM', 'DESIGN'],
-      color: '#1a1a1a',
-      image: 'image.jpg',
+      title: 'PIXEL FUSION',
+      category: 'Logo Design',
+      tags: ['IDENTITY', 'MODERN'],
+      color: '#000000',
+      image: 'pixelfusion.png',
       type: 'square'
-    }
+    },
+    // Thumbnail Designs - 1920x1080 Landscapes
+
+    // Insta Posts - 1080x1080 Squares
+
   ]
 
   // Filter logic remains simple
@@ -263,12 +238,17 @@ const Portfolio = () => {
 
         {/* CTA */}
         <div className="portfolio-cta">
-          <button className="portfolio-button">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSczk6de10ptv4IVXIHbZ0puCCEl-nq2EHXN5QjWTHHryqyJrQ/viewform?usp=header"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="portfolio-button"
+          >
             <span>Project Inquiries</span>
             <svg className="portfolio-button-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12H19M19 12L12 5M19 12L12 19" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-          </button>
+          </a>
         </div>
       </div>
 
